@@ -1,24 +1,26 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.2.0'
 
 gem 'rails', '4.1.2'
+gem 'puma', '~> 2.13'
+gem 'rack-timeout', '~> 0.2.4'
 
 gem 'pg'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'jquery-datatables-rails', '~> 1.12.2'
+gem 'jquery-datatables-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'sass-rails', '~> 4.0.1'
 gem 'haml', '~> 4.0.4'
-gem 'bootstrap-sass', '~> 3.0.2.1'
+gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'omniauth-github'
 gem 'omniauth-twitter'
 
 gem 'chartkick'
 gem 'groupdate'
-gem 'country_select'
+gem 'country_select', '~> 1.3.1'
 gem 'redcarpet', '~> 3.0.0'
 gem 'coderay', '~> 1.0'
 gem 'bootstrap-multiselect-rails', '0.0.4'
@@ -39,11 +41,11 @@ end
 group :development do
   gem 'annotate'
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'foreman'
   gem 'launchy'
   gem 'pry'
   gem 'quiet_assets'
-  gem 'thin'
   gem 'rack-mini-profiler'
   gem 'haml-rails'
   gem "spring-commands-rspec", require: false
@@ -51,7 +53,7 @@ end
 
 group :development, :test do
   gem 'capybara', '>= 2.2'
-  gem 'capybara-webkit'
+  gem 'capybara-webkit', '~> 1.6.0' # Requires local installation of QT (`brew install qt`)
   gem 'database_cleaner'
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
@@ -62,6 +64,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'timecop'
+  gem 'spring'
   gem 'pry-rails'
   gem 'awesome_print'
 end

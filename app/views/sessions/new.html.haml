@@ -1,11 +1,22 @@
-%h1 Sign In With
-%p
-  = link_to '/auth/twitter', class: 'btn btn-twitter' do
-    %i.icon-twitter
-    | Twitter
-  = link_to '/auth/github', class: 'btn btn-github' do
-    %i.icon-github
-    | GitHub
-  - unless Rails.env.production?
-    = link_to '/auth/developer', class: 'btn btn-link' do
-      Developer
+- content_for :header do
+  Sign In
+
+.sign-in-box
+  .row
+    .text-center.col-xs-12
+      .row
+        %p Log in with your Twitter/Github account
+      .row.twitter-github-links
+        .text-center
+          = link_to '/auth/twitter', class: 'btn btn-twitter btn-lg' do
+            %i.icon-twitter
+            | Twitter
+          = link_to '/auth/github', class: 'btn btn-github btn-lg' do
+            %i.icon-github
+            | GitHub
+
+          - unless Rails.env.production?
+            .row.sign-in-dev-link
+              .col-xs-12
+                = link_to '/auth/developer', class: 'btn btn-link btn-lg' do
+                  Developer

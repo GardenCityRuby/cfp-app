@@ -35,7 +35,7 @@ feature "Event Dashboard" do
       fill_in "End date", with: DateTime.now + 15.days
       click_button 'Save'
       admin_user.reload
-      admin_user.organizer_events.last.name.should eql("My Other Event")
+      expect(admin_user.organizer_events.last.name).to eql("My Other Event")
     end
 
     it "can edit an event" do
@@ -75,7 +75,7 @@ feature "Event Dashboard" do
     it "can promote a person" do
       person = create(:person)
       visit organizer_event_path(event)
-      click_link 'Add New Participant'
+      click_link 'Add/Invite New Participant'
 
       form = find('#new_participant')
       form.fill_in :email, with: person.email

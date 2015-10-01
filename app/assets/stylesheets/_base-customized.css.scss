@@ -1,0 +1,130 @@
+.sign-in-box {
+  margin-top: 40px;
+}
+
+.sign-in-dev-link {
+  margin-top: 30px;
+}
+
+.twitter-github-links {
+  margin-top: 30px;
+}
+
+.heading {
+  margin-bottom: 1rem;
+}
+
+.profile-label-description {
+  margin-bottom: 4rem;
+}
+
+.profile-description {
+  height: 12rem;
+  margin-bottom: 1rem;
+}
+
+.dropdown {
+  font-size: 1.8rem;
+}
+
+.dropdown-menu {
+  font-size: 1.5rem;
+}
+
+.dropdown-menu li {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.dropdown-menu li > ul {
+  padding-left: 0;
+}
+
+.dropdown-menu ul > li {
+  width: 80%;
+  border-bottom: 1px rgba(0, 0,0,0.5) solid;
+  margin-left: 10%;
+  padding: 1.5rem 0;
+}
+
+.dropdown-menu ul > li:last-child {
+  border-bottom: none;
+  padding-bottom: 0.5rem;
+}
+
+.dropdown-menu a {
+  font-size: 1.6rem;
+}
+
+.event-links {
+  margin: 0 auto 3rem;
+}
+
+.datatable-condensed th {
+  padding-right: 0px;
+}
+
+#reviewer-proposals.datatable {
+  padding-right: 0px;
+}
+
+table {
+  font-size: 1.6rem;
+}
+
+#reviewer-proposals th, .proposal-list {
+  font-size: 1.4rem;
+}
+
+#sort_reset {
+  margin: 4rem auto;
+}
+
+.datatable td, th {
+  text-align: left;
+}
+
+.updated-at {
+  width: 1px;
+}
+
+.event-guidelines {
+  margin-top: 5rem;
+}
+
+.markdown h2 {
+  font-size: 2.3rem; /* sizeof(h4) */
+}
+
+.markdown h3 {
+  font-size: 2.3rem; /* sizeof(h4) */
+}
+
+.stats {
+  margin-top: 5rem;
+}
+
+.number_filter { max-width: 6rem; }
+
+table.dataTable thead > tr > th {
+  padding-right: 5px;
+}
+
+.navbar {
+  overflow: hidden;
+}
+
+@media (max-width: 400px) {
+  .navbar-brand {
+    font-size: 16px;
+  }
+}
+
+.navbar-toggle {
+  background-color: rgba(154, 220, 255, 0.05);
+  border: 1px solid rgba(142, 200, 250, 0.63);
+}
+
+.icon-bar {
+  background: rgba(0,0,0,1);
+}

@@ -1,6 +1,19 @@
-- events.each do |event|
-  .event
-    %h1
-      = event
-      %small= event.status
-    = event.path_for(current_user)
+- content_for :header do
+  Events
+
+.row
+  .col-xs-12.col-sm-6.col-sm-offset-3
+    - if events.empty?
+      .text-center
+        %p You are not part of any event yet.
+    - else
+      %table.table
+        %tr
+          %th Event Name
+          %th Event Status
+          %th Proposals
+        - events.each do |event|
+          %tr
+            %td= event.name
+            %td= event.status
+            %td= event.path_for(current_user)

@@ -12,7 +12,16 @@ describe Organizer::ProposalsController, type: :controller do
   let(:proposal) { create(:proposal, event: event) }
 
   before do
-    ApplicationController.any_instance.stub(:current_user).and_return(person)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(person)
+  end
+
+  describe "GET 'show'" do
+    it "marks all notifications for this proposal as read" do
+      Notification.create_for([person], proposal: proposal, message: "A fancy notification")
+      expect{
+        get :show, {event_id: event.id, uuid: proposal.uuid}
+      }.to change {person.notifications.unread.count}.by(-1)
+    end
   end
 
   describe "POST 'update_state'" do

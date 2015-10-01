@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 def select_demographics(args)
-  select(args[:gender], from: 'person[gender]')
-  select(args[:ethnicity], from: 'person[ethnicity]')
+  fill_in 'person[gender]',    with: args[:gender]
+  fill_in 'person[ethnicity]', with: args[:ethnicity]
+
   select(args[:country], from: 'person[country]')
 end
 
@@ -54,5 +55,12 @@ feature 'User Profile' do
     click_button 'Save'
 
     expect(user.bio).to eq('I am even more awesome')
+  end
+
+  scenario "A user attempts to save their bio without email" do
+    visit (edit_profile_path)
+    fill_in('Email', with: '')
+    click_button 'Save'
+    expect(page).to have_content("Unable to save profile. Please correct the following: Email can't be blank")
   end
 end

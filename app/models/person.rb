@@ -1,6 +1,7 @@
 require 'digest/md5'
 
 class Person < ActiveRecord::Base
+  DEMOGRAPHICS      = [:gender, :ethnicity, :country]
   DEMOGRAPHIC_TYPES = {
     gender: ['female', 'male', 'trans*', 'bigender', 'genderqueer', 'not listed here'],
     ethnicity: ['African American', 'Asian', 'Caucasian', 'Hispanic', 'Native American', 'Pacific Islander', 'other' ],
@@ -24,8 +25,10 @@ class Person < ActiveRecord::Base
   has_many :notifications, dependent: :destroy
   has_many :proposals, through: :speakers, source: :proposal
 
+
   validates :email, uniqueness: { case_insensitive: true }, allow_nil: true
   validates :bio, length: { maximum: 500 }
+  validates :name, :presence => true, allow_nil: true
 
   def self.authenticate(auth, current_user = nil)
     provider = auth['provider']

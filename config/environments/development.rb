@@ -26,9 +26,12 @@ CFPApp::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  config.assets.compress = false
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.default_options = {from: 'cfp@example.org'}
 
   I18n.enforce_available_locales = false
+
+  config.time_zone = ENV['TIMEZONE'] || "Pacific Time (US & Canada)"
 end

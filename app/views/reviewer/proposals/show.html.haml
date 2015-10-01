@@ -7,6 +7,7 @@
         .clearfix
           =link_to(reviewer_event_proposals_path, class: "btn btn-primary") do
             &laquo; Return to Proposals
+
           - if proposal.previous_proposal?
             =link_to(reviewer_event_proposal_path(event, proposal.previous_proposal), class: "btn btn-primary") do
               Previous Proposal
@@ -22,6 +23,7 @@
         = proposal.updated_in_words
 
       .tags= proposal.tags
+
   .row
     .col-md-4
       = render partial: 'proposals/contents', locals: { proposal: proposal }
@@ -41,6 +43,8 @@
       %h3 Tags
       = render partial: 'shared/proposals/tags_form',
         locals: { event: event, proposal: proposal }
+      =link_to('#', class: "btn btn-primary") do
+        Next Proposal &raquo;
 
       .internal-comments{ style: proposal.internal_comments_style }
         %h3 Internal Comments
